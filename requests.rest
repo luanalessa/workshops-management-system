@@ -1,3 +1,40 @@
-GET http://localhost:3000/ HTTP/1.1
+POST http://localhost:3000/student/create HTTP/1.1
+Content-Type: application/json
 
-###
+{
+  "name": "Luana Lessa Sena",
+  "documentNumber": "123456789",
+  "address": {
+    "street": "123 Main St",
+    "number": "456",
+    "city": "Some City",
+    "neighborhood": "Central",
+    "postalCode": "12345",
+    "state": "CA"
+  },
+  "phone": "555-1234",
+  "dateOfBirth": "1990-01-01T00:00:00.000Z",
+  "email": "lessa@example.com",
+  "password": "securePassword123"
+}
+
+####
+POST http://localhost:3000/teacher/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Luís Otávio de Sena",
+  "documentNumber": "9876574321",
+  "address": {
+    "street": "123 Main St",
+    "number": "456",
+    "city": "Some City",
+    "neighborhood": "Central",
+    "postalCode": "12345",
+    "state": "CA"
+  },
+  "phone": "555-1234",
+  "dateOfBirth": "1990-01-01T00:00:00.000Z",
+  "email": "otavio@example.com",
+  "password": "securePassword123"
+}
