@@ -1,4 +1,4 @@
-import { Address } from '../models/valueObjects/address';
+import { Address } from '../../domain/models/valueObjects/address';
 
 export class CreateUserDto {
     name: string;

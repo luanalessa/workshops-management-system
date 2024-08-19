@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto';
 import { Address } from './valueObjects/address';
-import { UserType } from 'src/enum/user-type';
+import { UserType } from 'src/domain/enum/user-type';
 
 export class User {
     id: string;
