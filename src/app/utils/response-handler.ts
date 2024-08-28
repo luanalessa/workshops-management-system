@@ -9,7 +9,7 @@ export class ResponseHandler<T> {
         public readonly error?: any,
     ) {}
 
-    static success(data: Partial<User>, message: string = 'Operation successful', statusCode: number = 200): ResponseHandler<Partial<User>> {
+    static success(message: string = 'Operation successful', data?: Partial<User>, statusCode: number = 200): ResponseHandler<Partial<User>> {
         return new ResponseHandler(statusCode, message, data);
     }
 

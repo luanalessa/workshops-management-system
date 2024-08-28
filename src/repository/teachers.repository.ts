@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Student } from '../domain/models/student.model';
+import { Teacher } from '../domain/models/teacher.model';
 
-export class StudentRepository {
-    protected static filePath = path.join(__dirname, '..', 'repository', 'data', 'student.json');
+export class TeachersRepository {
+    protected static filePath = path.join(__dirname, '..', 'repository', 'data', 'teachers.json');
 
     protected static ensureFileExists(): void {
         if (!fs.existsSync(this.filePath)) {
@@ -12,16 +12,16 @@ export class StudentRepository {
         }
     }
 
-    static read(): Student[] {
+    static read(): Teacher[] {
         this.ensureFileExists();
         const data = fs.readFileSync(this.filePath, 'utf8');
-        const studant: Student[] = JSON.parse(data);
+        const teacher: Teacher[] = JSON.parse(data);
 
-        return studant;
+        return teacher;
     }
 
-    static write(studant: Student[]): void {
+    static write(teacher: Teacher[]): void {
         this.ensureFileExists();
-        fs.writeFileSync(this.filePath, JSON.stringify(studant, null, 2), 'utf8');
+        fs.writeFileSync(this.filePath, JSON.stringify(teacher, null, 2), 'utf8');
     }
 }

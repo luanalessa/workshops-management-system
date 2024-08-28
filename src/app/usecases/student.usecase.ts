@@ -9,12 +9,12 @@ export class StudentUseCase {
 
     async create(student: CreateUserDto): Promise<any> {
         try {
-            const studentAlreadyExists = await this.studentService.get(student.documentNumber);
+            const studentAlreadyExists = await this.studentService.get('documentNumber', student.documentNumber);
             if (studentAlreadyExists)
                 return ResponseHandler.error(`Student with document number: ${student.documentNumber} already exists`, HttpStatus.BAD_REQUEST);
 
-            const data = this.studentService.create(student);
-            return ResponseHandler.success(data, 'Student created successfully!');
+            const response = this.studentService.create(student);
+            return ResponseHandler.success('Student created successfully!', response);
         } catch (err) {
             return ResponseHandler.error(err.message, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -22,8 +22,8 @@ export class StudentUseCase {
 
     async get(documentNumber: string): Promise<any> {
         try {
-            const student = this.studentService.get(documentNumber);
-            return ResponseHandler.success(student, 'Student with document number found!');
+            const response = this.studentService.get('documentNumber', documentNumber);
+            return ResponseHandler.success('Student with document number found!', response);
         } catch (err) {
             return ResponseHandler.error('Student does not exist.', HttpStatus.NOT_FOUND);
         }

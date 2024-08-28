@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "name": "Luana Lessa Sena",
-  "documentNumber": "123456789",
+  "documentNumber": "123546",
   "address": {
     "street": "123 Main St",
     "number": "456",
@@ -17,6 +17,8 @@ Content-Type: application/json
   "email": "lessa@example.com",
   "password": "securePassword123"
 }
+####
+GET http://localhost:3000/student/search?id=123546 HTTP/1.1
 
 ####
 POST http://localhost:3000/teacher/create HTTP/1.1
@@ -24,7 +26,7 @@ Content-Type: application/json
 
 {
   "name": "Luís Otávio de Sena",
-  "documentNumber": "9876574321",
+  "documentNumber": "123",
   "address": {
     "street": "123 Main St",
     "number": "456",
@@ -38,3 +40,30 @@ Content-Type: application/json
   "email": "otavio@example.com",
   "password": "securePassword123"
 }
+
+
+####
+GET http://localhost:3000/teacher/search?id=123 HTTP/1.1
+####
+POST http://localhost:3000/courses/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Advanced TypeScript",
+  "title": "Deep Dive into TypeScript",
+  "description": "A comprehensive course on TypeScript features and best practices.",
+  "address": {
+    "street": "456 Tech Blvd",
+    "number": "789",
+    "city": "Tech City",
+    "neighborhood": "Innovation Park",
+    "postalCode": "67890",
+    "state": "CA"
+  },
+  "teacher": "Prof. John Doe",
+  "dateTime": "2024-09-15T10:00:00Z",
+  "duration": 6,
+  "vacancies": 25
+}
+####
+GET http://localhost:3000/courses/search?id=deefcd27-758c-4263-8074-41a254733fd9 HTTP/1.1

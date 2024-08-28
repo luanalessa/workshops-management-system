@@ -2,7 +2,7 @@ import { CreateUserDto } from 'src/app/dto/create-user.dto';
 import { Teacher } from '../models/teacher.model';
 import { UserServices } from './user.services';
 import { Student } from '../models/student.model';
-import { TeacherRepository } from '../../repository/teacher.repository';
+import { TeachersRepository } from '../../repository/teachers.repository';
 import { EMPTY } from 'rxjs';
 
 export class TeacherServices extends UserServices {
@@ -18,17 +18,17 @@ export class TeacherServices extends UserServices {
             user.password,
         );
 
-        const teachers = TeacherRepository.read();
+        const teachers = TeachersRepository.read();
         teachers.push(teacher);
 
-        TeacherRepository.write(teachers);
+        TeachersRepository.write(teachers);
 
         return teacher;
     }
 
-    public get(documentNumber: string): Student {
-        const teachers = TeacherRepository.read();
-        const index = teachers.findIndex((teacher: Teacher) => teacher.documentNumber === documentNumber);
+    public get(key: string, value: string): Student {
+        const teachers = TeachersRepository.read();
+        const index = teachers.findIndex((teacher: Teacher) => teacher[key] === value);
 
         if (index != -1) return teachers[index];
 
